@@ -1,4 +1,8 @@
-buildCommand: |
-  pip install -r requirements.txt
-  python manage.py collectstatic --noinput
-startCommand: gunicorn tu_proyecto.wsgi:application
+services:
+  - type: web
+    name: nombre-del-proyecto
+    env: python
+    buildCommand: |
+      pip install -r requirements.txt
+      python manage.py collectstatic --noinput
+    startCommand: gunicorn nombre_del_proyecto.wsgi:application
